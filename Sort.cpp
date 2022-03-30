@@ -1,34 +1,31 @@
-//
-// Created by Will on 3/30/2022.
-//
-
 #include "vector"
+
 #include "Sort.h"
 #include "IComparable.h"
 
 
+bool Sort::isSorted(const std::vector<IComparable *> &comparables) {
+    const int n = (int) comparables.size();
 
-//void Sort::swap(auto * a, auto * b) {
-//    auto tmp = *a;
-//    *a = *b;
-//    *b = tmp;
-//}
-//void Sort::swap(IComparable& a, IComparable& b) {
-//    IComparable &tmp = a;
-//    *a = *b;
-//    *b = *tmp;
-//}
+    if (n == 0 || n == 1)
+        return true;
 
+    for (int i = 1; i < n; i++)
+        // if the nth term is less than the n-1th term
+        if (comparables[i]->isLessThan(*comparables[i - 1]))
+            return false;
+
+    // every nth term is smaller than the n+1th term
+    return true;
+}
 int Sort::Partition(std::vector<IComparable *> & comparables, int low, int high) {
     int pivot = high;
     int j = low;
-    for(int i=low; i < high; ++i){
+    for(int i = low; i < high; ++i){
         if (comparables[i]->isLessThan(*comparables[pivot])){
             IComparable * tmp = comparables[i];
             comparables[i] = comparables[j];
             comparables[j] = tmp;
-
-           // std::swap(comparables[i], comparables[j]); uses templates
             ++j;
         }
     }
@@ -44,9 +41,11 @@ void Sort::quickSortHelper(std::vector<IComparable *> & comparables, int low, in
     }
 }
 
-void Sort::quicksort(std::vector<IComparable *> & comparables) {
+void Sort::quickSort(std::vector<IComparable *> & comparables) {
     quickSortHelper(comparables, 0, (int) comparables.size() - 1);
 }
+
+
 
 
 
