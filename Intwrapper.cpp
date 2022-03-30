@@ -32,14 +32,5 @@ void Intwrapper::printValue() const {
     std::cout << value << std::endl;
 }
 
-//bool Intwrapper::isLessThan(const IComparable &Comparable) {
-//    auto * tmp = dynamic_cast<Intwrapper*>(&Comparable);
-//    if (this->value < tmp->value)
-//        return true;
-//    else
-//        return false;
-//}
-
-
 
 

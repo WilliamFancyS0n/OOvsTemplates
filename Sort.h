@@ -11,15 +11,11 @@
 
 class Sort {
 public:
-    void swap(auto * a, auto * b);
-    void quicksort(std::vector<IComparable *> & comparables);
-    void quickSortHelper(std::vector<IComparable *> & comparables, int low, int high);
-    int Partition(std::vector<IComparable *> & comparables, int low, int high);
-
+    //static void swap(IComparable& a, IComparable& b);
+    static void quicksort(std::vector<IComparable *> & comparables);
 private:
-
-
-
+    static void quickSortHelper(std::vector<IComparable *> & comparables, int low, int high);
+    static int Partition(std::vector<IComparable *> & comparables, int low, int high);
 };
 
 
