@@ -7,21 +7,21 @@
 #include <string>
 
 class Stringwrapper : public IComparable {
+private:
+    std::string value;
 public:
 
     Stringwrapper(const std::string &stringValue);
 
     const std::string &getValue() const;
+
     void setValue(const std::string &stringValue);
 
     bool operator<(const Stringwrapper& rhs) const;
 
-    //bool isLessThan(IComparable &Comparable) override;
+    bool isLessThan(const IComparable &Comparable) override;
 
-private:
-    std::string value;
-
-
+    void printValue() const override;
 };
 
 

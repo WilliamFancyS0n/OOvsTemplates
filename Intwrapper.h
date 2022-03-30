@@ -7,9 +7,14 @@
 #include "IComparable.h"
 
 class Intwrapper : public IComparable {
+private:
+    int value;
 public:
+
     Intwrapper(int intValue);
+
     int getValue() const;
+
     void setValue(int intValue);
 
     bool operator<(const Intwrapper& rhs) const;
@@ -17,10 +22,6 @@ public:
     bool isLessThan(const IComparable &Comparable) override;
 
     void printValue() const override;
-
-private:
-
-    int value;
 };
 
 

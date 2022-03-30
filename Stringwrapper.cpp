@@ -19,11 +19,15 @@ bool Stringwrapper::operator<(const Stringwrapper &rhs) const {
     else
         return false;
 }
-//bool Stringwrapper::isLessThan(IComparable &Comparable) {
-//    auto * tmp = dynamic_cast<Stringwrapper*>(&Comparable);
-//    if (this->value.compare(tmp->value) < 0)
-//        return true;
-//    else
-//        return false;
-//}
-//
+
+void Stringwrapper::printValue() const {
+    std::cout << value << std::endl;
+}
+
+bool Stringwrapper::isLessThan(const IComparable &Comparable) {
+    auto * tmp = dynamic_cast<const Stringwrapper*>(&Comparable);
+    if (this->value.compare(tmp->value) < 0)
+        return true;
+    else
+        return false;
+}
