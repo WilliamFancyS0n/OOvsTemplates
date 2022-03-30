@@ -1,6 +1,6 @@
 #include <iostream>
 
-
+// works on mac
 
 #include "Intwrapper.cpp"
 #include "Stringwrapper.cpp"
