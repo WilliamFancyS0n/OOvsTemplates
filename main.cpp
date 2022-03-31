@@ -8,16 +8,10 @@
     #include "Stringwrapper.cpp"
     #include <chrono>
 
-
-
-
-
-
-
     using namespace std;
     using namespace std::chrono;
 
-
+    // generates random lowercase string of length len
     std::string gen_random(const int len) {
         static const char alphanum[] =
                 "abcdefghijklmnopqrstuvwxyz";
@@ -29,32 +23,7 @@
         return tmp_s;
     }
 
-
-
-
-
-
     int main() {
-    //    vector<IComparable * > things;
-    //    things.push_back(new Stringwrapper("a"));
-    //    things.push_back(new Stringwrapper("b"));
-    //    things.push_back(new Stringwrapper("c"));
-    //    things.push_back(new Stringwrapper("d"));
-    //    things.push_back(new Stringwrapper("e"));
-    //    things.push_back(new Stringwrapper("d"));
-
-        //Sort::quickSort(things);
-    //    cout << (Sort::isSorted(things));
-
-    //    for (auto & thing : things) // didn't know you could write a for each loop like this, really cool
-    //        thing->printValue();
-
-
-    //    for (int i = 0; i < things.size() - 1; i ++) {
-    //        things[i]->printValue();
-    //    }
-
-
 
             const int amt = 1000000;
             vector<IComparable * > myIntegerWrappers;
@@ -69,12 +38,14 @@
             uniform_int_distribution<int> randomStringLength(1, 4);
 
             for (int i = 0; i < amt; i ++)
+                // add a new Intwrapper object with a random value from 1 - 1000
                 myIntegerWrappers.push_back(new Intwrapper(randomIntRange(eng)));
 
             for (int i = 0; i < amt; i ++)
+                // add a new Stringwrapper object with random alphabetical characters and a random length between 1 - 4
                 myStringWrappers.push_back(new Stringwrapper(gen_random(randomStringLength(eng))));
 
-
+            // sort and time the int wrappers
             auto startTimeIntSort = chrono::high_resolution_clock::now();
             Sort::quickSort(myIntegerWrappers);
             auto stopTimeIntSort = high_resolution_clock::now();
@@ -104,17 +75,9 @@
 
 
 
-    //
-    //        Sort::quickSort(myIntegerWrappers);
-    //        cout << Sort::isSorted(myIntegerWrappers);
-    //    for (int i = 0; i < 100; i++)
-    //        cout << gen_random(4) << endl;
 
 
 
 
         return 0;
-
-
-
     }
