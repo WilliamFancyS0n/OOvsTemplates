@@ -11,7 +11,6 @@
 
 class Sort {
 public:
-    //static void swap(IComparable& a, IComparable& b);
     static bool isSorted(const std::vector<IComparable *> & comparables);
     static void quickSort(std::vector<IComparable *> & comparables);
 private:

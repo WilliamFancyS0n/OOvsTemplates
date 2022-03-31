@@ -4,7 +4,7 @@
 #include "IComparable.h"
 
 
-bool Sort::isSorted(const std::vector<IComparable *> &comparables) {
+bool Sort::isSorted(const std::vector<IComparable *> & comparables) {
     const int n = (int) comparables.size();
 
     if (n == 0 || n == 1)

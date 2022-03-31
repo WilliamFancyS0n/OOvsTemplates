@@ -10,6 +10,7 @@ class Intwrapper : public IComparable {
 private:
     int value;
 public:
+    ~Intwrapper();
 
     Intwrapper(int intValue);
 

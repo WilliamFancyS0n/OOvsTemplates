@@ -13,6 +13,10 @@ void Intwrapper::setValue(int intValue) {
     Intwrapper::value = intValue;
 }
 
+Intwrapper::~Intwrapper() {
+
+}
+
 bool Intwrapper::operator<(const Intwrapper &rhs) const {
     if (this->value < rhs.value)
         return true;
@@ -31,6 +35,8 @@ bool Intwrapper::isLessThan(const IComparable &Comparable) {
 void Intwrapper::printValue() const {
     std::cout << value << std::endl;
 }
+
+
 
 
 
