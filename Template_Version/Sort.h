@@ -10,7 +10,7 @@ public:
     static void quickSort(std::vector<Comparable *> & comparables, Comparator & comparator);
 
     template<typename Comparable, typename Comparator>
-    bool isSorted(const std::vector<Comparable *> & comparables, Comparator & comparator);
+    static bool isSorted(const std::vector<Comparable *> & comparables, Comparator & comparator);
 
 private:
 

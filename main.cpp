@@ -81,32 +81,32 @@
 //    myWrappers.push_back(new IntWrapper(3));
 //    myWrappers.push_back(new IntWrapper(1));
 //
-//    IntWrapper test1(511);
-//    IntWrapper test2(10);
-//
 //    isLessThan<IntWrapper *> IntWrapperSort;
-//
-//    //cout << IntWrapperSort(myWrappers[0],myWrappers[2]);
-//
 //
 //
 //    Sort::quickSort(myWrappers, IntWrapperSort);
+//
+//    cout<< Sort::isSorted(myWrappers, IntWrapperSort);
+//
 //    for (auto & s : myWrappers)
 //        cout << s->getValue() << endl;
-//
-//    //cout << isSorted(myWrappers, IntWrapperSort);
+
+    //cout << isSorted(myWrappers, IntWrapperSort);
 
     vector<StringWrapper * > myWrappers;
 
     myWrappers.push_back(new StringWrapper("b"));
-        myWrappers.push_back(new StringWrapper("b"));
+        myWrappers.push_back(new StringWrapper("z"));
+        myWrappers.push_back(new StringWrapper("a"));
+        myWrappers.push_back(new StringWrapper("c"));
     isLessThan<StringWrapper *> StringWrapperFunctor;
 
+    Sort::quickSort(myWrappers, StringWrapperFunctor);
 
 
-
-
-
+        cout << (Sort::isSorted(myWrappers, StringWrapperFunctor)) << endl;
+        for (auto & s : myWrappers)
+            cout << s->getValue() << endl;
 
 
         return 0;
