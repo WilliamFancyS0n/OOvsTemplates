@@ -1,5 +1,4 @@
 #include "vector"
-
 #include "ICSort.h"
 #include "IComparable.h"
 
@@ -7,7 +6,7 @@
 bool ICSort::isSorted(const std::vector<IComparable *> & comparables) {
     const int n = (int) comparables.size();
 
-    if (n == 0 || n == 1)
+    if (n == 0 || n == 1) // if the array has one element or is empty, return true;
         return true;
 
     for (int i = 1; i < n; i++)

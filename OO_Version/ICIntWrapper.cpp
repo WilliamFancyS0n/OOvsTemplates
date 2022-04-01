@@ -1,16 +1,7 @@
-//
-// Created by Will on 3/29/2022.
-//
-
-
-
+#include <iostream>
 #include "ICIntWrapper.h"
 
 ICIntWrapper::ICIntWrapper(int intValue) : value(intValue) {}
-
-ICIntWrapper::~ICIntWrapper() {
-
-}
 
 int ICIntWrapper::getValue() const {
     return value;
@@ -18,8 +9,6 @@ int ICIntWrapper::getValue() const {
 void ICIntWrapper::setValue(int intValue) {
     ICIntWrapper::value = intValue;
 }
-
-
 
 bool ICIntWrapper::operator<(const ICIntWrapper &rhs) const {
     if (this->value < rhs.value)
@@ -29,7 +18,6 @@ bool ICIntWrapper::operator<(const ICIntWrapper &rhs) const {
 }
 
 bool ICIntWrapper::isLessThan(const IComparable &Comparable) {
-
     auto * tmp = dynamic_cast<const ICIntWrapper*>(&Comparable);
     if (this->value < tmp->value)
         return true;

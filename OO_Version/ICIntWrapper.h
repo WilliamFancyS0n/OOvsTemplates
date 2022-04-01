@@ -4,13 +4,10 @@
 
 #ifndef OOVSTEMPLATES_ICINTWRAPPER_H
 #define OOVSTEMPLATES_ICINTWRAPPER_H
-#include "IComparable.h"
 
+#include "IComparable.h"
 class ICIntWrapper : public IComparable {
-private:
-    int value;
 public:
-    ~ICIntWrapper();
 
     ICIntWrapper(int intValue);
 
@@ -23,6 +20,8 @@ public:
     bool isLessThan(const IComparable &Comparable) override;
 
     void printValue() const override;
+private:
+    int value;
 };
 
 

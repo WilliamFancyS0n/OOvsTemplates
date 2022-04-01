@@ -6,21 +6,19 @@
 
 class Sort {
 public:
-    template<typename Comparable>
-    static void quickSort(std::vector<Comparable *> & comparables);
+    template<typename Comparable, typename Comparator>
+    static void quickSort(std::vector<Comparable *> & comparables, Comparator & comparator);
 
-    template<typename Comparable>
-    static bool isSorted(const std::vector<Comparable *> & comparables);
+    template<typename Comparable, typename Comparator>
+    bool isSorted(const std::vector<Comparable *> & comparables, Comparator & comparator);
 
 private:
 
-    template<typename Comparable>
-    static void quickSortHelper(std::vector<Comparable *> & comparables, int low, int high);
+    template<typename Comparable, typename Comparator>
+    static void quickSortHelper(std::vector<Comparable *> & comparables, int low, int high, Comparator & comparator);
 
-    template<typename Comparable>
-    static int Partition(std::vector<Comparable *> & comparables, int low, int high);
-
-
+    template<typename Comparable, typename Comparator>
+    static int Partition(std::vector<Comparable *> & comparables, int low, int high, Comparator & comparator);
 };
 
 
