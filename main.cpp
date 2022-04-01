@@ -99,7 +99,8 @@
         myWrappers.push_back(new StringWrapper("z"));
         myWrappers.push_back(new StringWrapper("a"));
         myWrappers.push_back(new StringWrapper("c"));
-    isLessThan<StringWrapper *> StringWrapperFunctor;
+
+    const isLessThan<StringWrapper *> StringWrapperFunctor;
 
     Sort::quickSort(myWrappers, StringWrapperFunctor);
 

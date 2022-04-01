@@ -1,6 +1,3 @@
-//
-// Created by Will on 3/29/2022.
-//
 
 #ifndef OOVSTEMPLATES_ICOMPARABLE_H
 #define OOVSTEMPLATES_ICOMPARABLE_H
