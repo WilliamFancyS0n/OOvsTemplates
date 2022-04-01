@@ -2,22 +2,22 @@
 // Created by Will on 3/29/2022.
 //
 
-#ifndef OOVSTEMPLATES_STRINGWRAPPER_H
-#define OOVSTEMPLATES_STRINGWRAPPER_H
+#ifndef OOVSTEMPLATES_ICSTRINGWRAPPER_H
+#define OOVSTEMPLATES_ICSTRINGWRAPPER_H
 #include <string>
 
-class Stringwrapper : public IComparable {
+class ICStringWrapper : public IComparable {
 private:
     std::string value;
 public:
 
-    Stringwrapper(const std::string &stringValue);
+    ICStringWrapper(const std::string &stringValue);
 
     const std::string &getValue() const;
 
     void setValue(const std::string &stringValue);
 
-    bool operator<(const Stringwrapper& rhs) const;
+    bool operator<(const ICStringWrapper& rhs) const;
 
     bool isLessThan(const IComparable &Comparable) override;
 
@@ -25,4 +25,4 @@ public:
 };
 
 
-#endif //OOVSTEMPLATES_STRINGWRAPPER_H
+#endif //OOVSTEMPLATES_ICSTRINGWRAPPER_H

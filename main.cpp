@@ -2,16 +2,16 @@
     #include <random>
     #include "vector"
 
-    #include "IComparable.h"
-    #include "Sort.cpp"
-    #include "Intwrapper.cpp"
-    #include "Stringwrapper.cpp"
+    #include "OO_Version/IComparable.h"
+    #include "OO_Version/ICSort.cpp"
+    #include "OO_Version/ICIntWrapper.cpp"
+    #include "OO_Version/ICStringWrapper.cpp"
+
     #include <chrono>
+
 
     using namespace std;
     using namespace std::chrono;
-
-    // generates random lowercase string of length len
     std::string gen_random(const int len) {
         static const char alphanum[] =
                 "abcdefghijklmnopqrstuvwxyz";
@@ -23,9 +23,10 @@
         return tmp_s;
     }
 
-    int main() {
 
-            const int amt = 1000000;
+    int main() {
+            //const int amt = 1000000;
+            const int amt = 20000;
             vector<IComparable * > myIntegerWrappers;
             vector<IComparable * > myStringWrappers;
 
@@ -38,44 +39,33 @@
             uniform_int_distribution<int> randomStringLength(1, 4);
 
             for (int i = 0; i < amt; i ++)
-                // add a new Intwrapper object with a random value from 1 - 1000
-                myIntegerWrappers.push_back(new Intwrapper(randomIntRange(eng)));
+                myIntegerWrappers.push_back(new ICIntWrapper(randomIntRange(eng)));
 
             for (int i = 0; i < amt; i ++)
-                // add a new Stringwrapper object with random alphabetical characters and a random length between 1 - 4
-                myStringWrappers.push_back(new Stringwrapper(gen_random(randomStringLength(eng))));
+                myStringWrappers.push_back(new ICStringWrapper(gen_random(randomStringLength(eng))));
 
-            // sort and time the int wrappers
+
             auto startTimeIntSort = chrono::high_resolution_clock::now();
-            Sort::quickSort(myIntegerWrappers);
+            ICSort::quickSort(myIntegerWrappers);
             auto stopTimeIntSort = high_resolution_clock::now();
             auto intSortTime = duration_cast<seconds>(stopTimeIntSort - startTimeIntSort);
             cout << "it took " << intSortTime.count() << " seconds to sort the integers" << endl;
-            if (Sort::isSorted(myIntegerWrappers))
+            if (ICSort::isSorted(myIntegerWrappers))
                 cout << "sort verification complete, Integers are sorted!" << endl;
 
 
             auto startTimeStringSort = chrono::high_resolution_clock::now();
-            Sort::quickSort(myStringWrappers);
+            ICSort::quickSort(myStringWrappers);
             auto stopTimeStringSort = high_resolution_clock::now();
             auto stringSortTime = duration_cast<seconds>(stopTimeStringSort - startTimeIntSort);
             cout << "\nit took " << stringSortTime.count() << " seconds to sort the strings" << endl;
-            if (Sort::isSorted(myStringWrappers))
+            if (ICSort::isSorted(myStringWrappers))
                 cout << "sort verification complete, Strings are sorted!" << endl;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+            for (auto & s : myStringWrappers) {
+                s->printValue();
+            }
 
 
 

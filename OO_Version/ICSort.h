@@ -2,14 +2,14 @@
 // Created by Will on 3/30/2022.
 //
 
-#ifndef OOVSTEMPLATES_SORT_H
-#define OOVSTEMPLATES_SORT_H
+#ifndef OOVSTEMPLATES_ICSORT_H
+#define OOVSTEMPLATES_ICSORT_H
 
 #include "IComparable.h"
 #include "vector"
 
 
-class Sort {
+class ICSort {
 public:
     static bool isSorted(const std::vector<IComparable *> & comparables);
     static void quickSort(std::vector<IComparable *> & comparables);
@@ -19,4 +19,4 @@ private:
 };
 
 
-#endif //OOVSTEMPLATES_SORT_H
+#endif //OOVSTEMPLATES_ICSORT_H

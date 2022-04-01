@@ -1,10 +1,10 @@
 #include "vector"
 
-#include "Sort.h"
+#include "ICSort.h"
 #include "IComparable.h"
 
 
-bool Sort::isSorted(const std::vector<IComparable *> & comparables) {
+bool ICSort::isSorted(const std::vector<IComparable *> & comparables) {
     const int n = (int) comparables.size();
 
     if (n == 0 || n == 1)
@@ -18,7 +18,7 @@ bool Sort::isSorted(const std::vector<IComparable *> & comparables) {
     // every nth term is smaller than the n+1th term
     return true;
 }
-int Sort::Partition(std::vector<IComparable *> & comparables, int low, int high) {
+int ICSort::Partition(std::vector<IComparable *> & comparables, int low, int high) {
     int pivot = high;
     int j = low;
     for(int i = low; i < high; ++i){
@@ -29,11 +29,13 @@ int Sort::Partition(std::vector<IComparable *> & comparables, int low, int high)
             ++j;
         }
     }
-    std::swap(comparables[j],comparables[pivot]);
+    IComparable * tmp = comparables[j];
+    comparables[j] = comparables[pivot];
+    comparables[pivot] = tmp;
     return j;
 }
 
-void Sort::quickSortHelper(std::vector<IComparable *> & comparables, int low, int high) {
+void ICSort::quickSortHelper(std::vector<IComparable *> & comparables, int low, int high) {
     if (low < high) {
         int tmp = Partition(comparables, low, high);
         quickSortHelper(comparables, low, tmp - 1);
@@ -41,7 +43,7 @@ void Sort::quickSortHelper(std::vector<IComparable *> & comparables, int low, in
     }
 }
 
-void Sort::quickSort(std::vector<IComparable *> & comparables) {
+void ICSort::quickSort(std::vector<IComparable *> & comparables) {
     quickSortHelper(comparables, 0, (int) comparables.size() - 1);
 }
 

@@ -2,23 +2,23 @@
 // Created by Will on 3/29/2022.
 //
 
-#ifndef OOVSTEMPLATES_INTWRAPPER_H
-#define OOVSTEMPLATES_INTWRAPPER_H
+#ifndef OOVSTEMPLATES_ICINTWRAPPER_H
+#define OOVSTEMPLATES_ICINTWRAPPER_H
 #include "IComparable.h"
 
-class Intwrapper : public IComparable {
+class ICIntWrapper : public IComparable {
 private:
     int value;
 public:
-    ~Intwrapper();
+    ~ICIntWrapper();
 
-    Intwrapper(int intValue);
+    ICIntWrapper(int intValue);
 
     int getValue() const;
 
     void setValue(int intValue);
 
-    bool operator<(const Intwrapper& rhs) const;
+    bool operator<(const ICIntWrapper& rhs) const;
     //bool isLessThan(const IComparable &Comparable) override;
     bool isLessThan(const IComparable &Comparable) override;
 
@@ -26,4 +26,4 @@ public:
 };
 
 
-#endif //OOVSTEMPLATES_INTWRAPPER_H
+#endif //OOVSTEMPLATES_ICINTWRAPPER_H
