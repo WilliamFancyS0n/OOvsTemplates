@@ -118,7 +118,7 @@ int main() {
     stopTime = high_resolution_clock::now();
     sortTime = duration_cast<milliseconds>(stopTime - startTime);
     cout << "\nTemplatized sorting StringWrapper took " << sortTime.count() << " milliseconds for " << amt << " objects" <<
-         "\nSorted: " << (Sort::isSorted(IntWrappers, IntWrapperFunctor)? "True" : "False") << endl;
+         "\nSorted: " << (Sort::isSorted(StringWrappers, StringWrapperFunctor)? "True" : "False") << endl;
     StringWrappers.clear();
 
     return 0;
